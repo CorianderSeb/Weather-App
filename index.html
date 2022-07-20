@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />  
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link href="src/styles.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,500;1,400&display=swap" rel="stylesheet">
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+      <div class="row">
+        <div class="col-sm-6" id="search-bar">
+            <form id="search-city-name">
+              <input
+                type="text"
+                placeholder="Search for city"
+                autocomplete="off"
+                autofocus="on"
+                id="search-text-input"
+              />
+              <button type="submit" id= "go-button" class="btn btn-danger search-button">Go</button>
+            <button type="button" class="btn btn-danger" id="current-location">Current Location</button>
+            </form>
+            
+        </div>
+        <div class="col-sm-3" id="current-data">
+            <h2>
+              <span id="temp-description">
+                .
+              </span>
+                <div> 
+                  Humidity: <span id="humidity-data">.</span>% 
+                </div>
+                <div>
+                  Wind Speed: <span id="wind-speed">.</span>
+                </div>
+              <div class="current temperature">
+                <span id="current-temp">78</span>°
+                  <small>
+                    <a href="#" id="c-temp">°C </a>|
+                    <a href="#" id="f-temp">°F </a>
+                  </small>
+              </div>
+            </h2> 
+        </div>  
+         <div class="col-sm-3" id="place-and-date">
+            <h1>
+            <span class="city">
+              New York
+            </span>
+          </h1>
+          <h3>
+            <span id="day-and-time">
+              Saturday, 9.00 am
+            </span>
+          </h3>
+        </div>
+  </header>
+  <div class="row">
+    <div class="col">
+      <div class="card Tomorrow">
+        <div class="card-body">
+          <h5 class="card-title">Tomorrow</h5>
+          <h6 class="card-subtitle mb-2 text-muted">☀️</h6>
+          <p class="card-text">98° F</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card Monday">
+        <div class="card-body">
+          <h5 class="card-title">Monday</h5>
+          <h6 class="card-subtitle mb-2 text-muted">⛅</h6>
+          <p class="card-text">98° F</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card Tuesday">
+        <div class="card-body">
+          <h5 class="card-title">Tuesday</h5>
+          <h6 class="card-subtitle mb-2 text-muted">🌧️</h6>
+          <p class="card-text">98° F</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card Wednesday">
+        <div class="card-body">
+          <h5 class="card-title">Wednesday</h5>
+          <h6 class="card-subtitle mb-2 text-muted">❄️</h6>
+          <p class="card-text">2° F</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card Thursday">
+        <div class="card-body">
+          <h5 class="card-title">Thursday</h5>
+          <h6 class="card-subtitle mb-2 text-muted">☁️</h6>
+          <p class="card-text">98° F</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      </div>
+      
+
+    <footer>
+      Coded by Sebastian Seithel
+    </footer>
+    <script src="src/index.js"></script>
+  </body>
+</html>
