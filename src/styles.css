@@ -1,0 +1,83 @@
+body {
+  background: linear-gradient(
+    179.4deg,
+    rgb(253, 240, 233) 2.2%,
+    rgb(255, 194, 203) 96.2%
+  );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: "Montserrat", sans-serif;
+  color: rgb(57, 57, 136);
+}
+header {
+  color: rgb(57, 57, 136);
+  text-align: right;
+  padding: 10px 20px;
+  display: block;
+  margin-right: 0;
+  padding-top: 100px;
+}
+h1 {
+  text-align: right;
+}
+h2 {
+  font-weight: 300;
+  font-size: 20px;
+  text-align: right;
+}
+form {
+  position: relative;
+  color: plum;
+}
+h6 {
+  font-size: 75px;
+  text-align: center;
+}
+p {
+  font-size: 30px;
+  text-align: center;
+}
+footer {
+  font-size: 14px;
+  color: cornflowerblue;
+}
+#search-bar{
+  padding-right: 200px;
+  padding-top: 10px;
+}
+#place-and-date {
+  padding-right: 35px;
+}
+.day-and-time {
+  font-size: 14px;
+  font-style: italic;
+  text-align: right;
+}
+.card {
+  border-color: cornflowerblue;
+  border-width: 6px;
+  margin: 5px;
+  text-align: center;
+  width: 12rem;
+}
+@media screen and (max-width: 800px) {
+  .card {
+font-size: 4pt;
+width: 5rem;
+margin:0;
+}
+.card p{
+  font-size: 12px;
+}
+.card h6{
+  font-size:10px
+}
+.card-title {
+  font-size: 15px;
+}
+}
+#currentLocation {
+  border-color: crimson;
+  text-align: left;
+}
