@@ -48,11 +48,11 @@ function getWeatherConditions(city) {
     let currentTempData = document.querySelector("#current-temp");
     currentTempData.innerHTML = response.data.main.temp;
   });
-  /* let weatherSymbol = searchByType (city);
+  let weatherSymbol = searchByType (city);
     weatherSymbol.then(function(response){
     let weatherSymbolData = document.querySelector("#weather-symbol-data");
     weatherSymbolData.innerHTML = response.data.weather[0].icon;
-    })*/
+    })
   let humidity = searchByType(city);
   humidity.then(function (response) {
     let humidityData = document.querySelector("#humidity-data");
