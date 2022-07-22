@@ -50,9 +50,8 @@ function getWeatherConditions(city) {
   });
   /* let weatherSymbol = searchByType (city);
     weatherSymbol.then(function(response){
-    let weatherSymbolData = document.querySelector("");
+    let weatherSymbolData = document.querySelector("#weather-symbol-data");
     weatherSymbolData.innerHTML = response.data.weather[0].icon;
-    //insert location here
     })*/
   let humidity = searchByType(city);
   humidity.then(function (response) {
