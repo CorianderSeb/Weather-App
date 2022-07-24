@@ -46,7 +46,7 @@ function getWeatherConditions(city) {
   let temperature = searchByType(city);
   temperature.then(function (response) {
     let currentTempData = document.querySelector("#current-temp");
-    currentTempData.innerHTML = response.data.main.temp;
+    currentTempData.innerHTML = Math.round(response.data.main.temp);
   });
   let weatherSymbol = searchByType (city);
     weatherSymbol.then(function(response){
@@ -62,9 +62,9 @@ function getWeatherConditions(city) {
   windSpeed.then(function (response) {
     let windSpeedData = document.querySelector("#wind-speed");
     if (units === "metric") {
-      windSpeedData.innerHTML = response.data.wind.speed + " m/s";
+      windSpeedData.innerHTML = Math.round(response.data.wind.speed) + " m/s";
     } else {
-      windSpeedData.innerHTML = response.data.wind.speed + " mph";
+      windSpeedData.innerHTML = Math.round(response.data.wind.speed) + " mph";
     }
   });
 }
