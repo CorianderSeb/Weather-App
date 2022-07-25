@@ -62,7 +62,7 @@ function getWeatherConditions(city) {
   windSpeed.then(function (response) {
     let windSpeedData = document.querySelector("#wind-speed");
     if (units === "metric") {
-      windSpeedData.innerHTML = Math.round(response.data.wind.speed) + " m/s";
+      windSpeedData.innerHTML = Math.round(response.data.wind.speed) + " km/h";
     } else {
       windSpeedData.innerHTML = Math.round(response.data.wind.speed) + " mph";
     }
