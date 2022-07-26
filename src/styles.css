@@ -16,7 +16,8 @@ header {
   padding: 10px 20px;
   display: block;
   margin-right: 0;
-  padding-top: 100px;
+  padding-left:0;
+  padding-top: 75px;
 }
 h1 {
   text-align: right;
@@ -46,13 +47,15 @@ footer {
   color: cornflowerblue;
   padding-left: 150px;
 }
-#search-bar{
-  padding-right: 200px;
-  padding-top: 10px;
-
+#search-bar {
+  padding-top: 30px;
+  width:725px;
+  text-align: left;
 }
 #place-and-date {
   padding-right: 35px;
+  width: 250px;
+  text-align: right;
 }
 .day-and-time {
   font-size: 14px;
@@ -88,4 +91,7 @@ margin:0;
 }
 #weather-symbol-data {
 color: crimson;
+}
+.col-md-1 {
+  padding-right: 0;
 }
