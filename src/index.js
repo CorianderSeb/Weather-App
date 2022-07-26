@@ -53,8 +53,9 @@ function getWeatherConditions(city) {
     let weatherSymbolData = document.querySelector("#weather-symbol-data");
    weatherSymbolData.setAttribute(
      "src",
-     "http://openweathermap.org/img/wn/10d@2x.png"
+     'http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png'
    );
+   weatherSymbolData.setAttribute("alt", response.data.weather[0].description);
     })
   let humidity = searchByType(city);
   humidity.then(function (response) {

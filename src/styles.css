@@ -45,6 +45,7 @@ p {
 footer {
   font-size: 14px;
   color: cornflowerblue;
+  padding-top: 15px;
   padding-left: 150px;
 }
 #search-bar {
