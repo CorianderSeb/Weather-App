@@ -96,3 +96,19 @@ color: crimson;
 .col-md-1 {
   padding-right: 0;
 }
+#c-degrees .active {
+  color: rgb(57, 57, 136);
+  text-decoration: none;
+  cursor: default;
+}
+#c-degrees .active:hover {
+text-decoration: none;
+}
+#f-degrees .active {
+  color: rgb(57, 57, 136);
+  text-decoration: none;
+  cursor: default;
+}
+#f-degrees .active:hover {
+text-decoration: none;
+}

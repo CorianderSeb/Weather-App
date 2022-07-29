@@ -76,6 +76,8 @@ function getWeatherConditions(city) {
 function showCelcius(event) {
   event.preventDefault();
   units = "metric";
+  ctemp.classList.remove("active")
+  ftemp.classList.add("active");
   updatePage();
 }
 
@@ -85,6 +87,8 @@ ctemp.addEventListener("click", showCelcius);
 function showFarenheit(event) {
   event.preventDefault();
   units = "imperial";
+  ftemp.classList.remove("active");
+  ctemp.classList.add("active");
   updatePage();
 }
 let ftemp = document.querySelector("#f-temp");
@@ -141,6 +145,39 @@ function showCurrentCity(response) {
   inp.value = response.data.name;
   updatePage();
 }
+function showForecast() {
+  let forecastElement= document.querySelector("#weather-forecast");
+  let weatherforecastHTML= '<div class="row">';
+  let days = ["Thursday", "Friday", "Saturday", "Sunday", "Monday"];
+  days.forEach(function(day) {
+weatherforecastHTML = weatherforecastHTML + `
+    <div class="col" id="weather-forecast">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">${day}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">☀️</h6>
+          <p class="card-text">98° F</p>
+        </div>
+      </div>
+    </div>
+     `;
+weatherforecastHTML = weatherforecastHTML + `
+    <div class="col" id="weather-forecast">
+      <div class="card Tomorrow">
+        <div class="card-body">
+          <h5 class="card-title">Tomorrow</h5>
+          <h6 class="card-subtitle mb-2 text-muted">☀️</h6>
+          <p class="card-text">98° F</p>
+        </div>
+      </div>
+    </div>
+     `;
+  }
+  
+  weatherforecastHTML= `</div>`
+  forecastElement.innerHTML= weatherforecastHTML;
+}
+
 let btn = document.querySelector("#current-location");
 btn.addEventListener("click", getCurrentLocation);
 
