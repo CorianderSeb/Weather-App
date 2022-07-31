@@ -115,7 +115,6 @@ function displayWeatherInfo(response) {
 }
 
 function search(city) {
-  //let units = metric;
   let apiKey = "9fba0552270644ffade53d9ab23b2ddc";
   let urlEndpoint = `https://api.openweathermap.org/data/2.5/weather?q=`;
   let apiUrl = `${urlEndpoint}${city}&appid=${apiKey}&units=${units}`;
@@ -145,37 +144,42 @@ function showCurrentCity(response) {
   inp.value = response.data.name;
   updatePage();
 }
+//Help on this loop function
 function showForecast() {
-  let forecastElement= document.querySelector("#weather-forecast");
-  let weatherforecastHTML= '<div class="row">';
+  let forecastElement= document.querySelector("#forecast");
+  let forecastHTML= '<div class="row">';
   let days = ["Thursday", "Friday", "Saturday", "Sunday", "Monday"];
   days.forEach(function(day) {
-weatherforecastHTML = weatherforecastHTML + `
+forecastHTML = 
+  forecastHTML + 
+  `
     <div class="col" id="weather-forecast">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">${day}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">☀️</h6>
-          <p class="card-text">98° F</p>
-        </div>
-      </div>
+      <span id="card">
+      <ul>
+        <li class="card-title">${day}</li>
+        <li class="card-subtitle mb-2 text-muted">☀️</li>
+        <li class="card-text">98° F</li>
+        </ul>
+      <span>
     </div>
      `;
-weatherforecastHTML = weatherforecastHTML + `
+forecastHTML =
+  forecastHTML +
+  `
     <div class="col" id="weather-forecast">
-      <div class="card Tomorrow">
-        <div class="card-body">
-          <h5 class="card-title">Tomorrow</h5>
-          <h6 class="card-subtitle mb-2 text-muted">☀️</h6>
-          <p class="card-text">98° F</p>
-        </div>
-      </div>
+      <span id="card">
+      <ul>
+        <li class="card-title">${day}</li>
+        <li class="card-subtitle mb-2 text-muted">☀️</li>
+        <li class="card-text">98° F</li>
+        </ul>
+      <span>
     </div>
      `;
-  }
+  })
   
-  weatherforecastHTML= `</div>`
-  forecastElement.innerHTML= weatherforecastHTML;
+  forecastHTML= `</div>`
+  forecastElement.innerHTML= forecastHTML;
 }
 
 let btn = document.querySelector("#current-location");
