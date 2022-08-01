@@ -99,6 +99,14 @@ function displayCity() {
   searchedCity.innerHTML = FormData;
   searchedCity.addEventListener("click", displayCity);
 }
+function getForecast(coordinates){
+  let units = metric
+  let apiKey = "9fba0552270644ffade53d9ab23b2ddc";
+  let apiURL = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
+axios.get(apiURL).then(showForecast);
+console.log(response.data)
+}
+
 
 function displayWeatherInfo(response) {
   document.querySelector("#city-name").innerHTML = response.data.name;
@@ -112,6 +120,7 @@ function displayWeatherInfo(response) {
   document.querySelector("#current-temp").innerHTML = Math.round(
     response.data.main.temp
   );
+  getForecast(response.data.coord);
 }
 
 function search(city) {
@@ -132,18 +141,6 @@ function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(ShowPosition);
 }
-function ShowPosition(position) {
-  let lat = position.coords.latitude;
-  let lon = position.coords.longitude;
-  let apiKey = "9fba0552270644ffade53d9ab23b2ddc";
-  let apiURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;
-  axios.get(apiURL).then(showCurrentCity);
-}
-function showCurrentCity(response) {
-  let inp = document.querySelector("#search-text-input");
-  inp.value = response.data.name;
-  updatePage();
-}
 //Help on this loop function
 function showForecast() {
   let forecastElement= document.querySelector("#forecast");
@@ -156,20 +153,7 @@ forecastHTML =
     <div class="col" id="weather-forecast">
       <span id="card">
       <ul>
-        <li class="card-title">${day}</li>
-        <li class="card-subtitle mb-2 text-muted">☀️</li>
-        <li class="card-text">98° F</li>
-        </ul>
-      <span>
-    </div>
-     `;
-forecastHTML =
-  forecastHTML +
-  `
-    <div class="col" id="weather-forecast">
-      <span id="card">
-      <ul>
-        <li class="card-title">${day}</li>
+        <li class="card-title">${days}</li>
         <li class="card-subtitle mb-2 text-muted">☀️</li>
         <li class="card-text">98° F</li>
         </ul>
@@ -180,6 +164,20 @@ forecastHTML =
   
   forecastHTML= `</div>`
   forecastElement.innerHTML= forecastHTML;
+}
+
+function ShowPosition(position) {
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let apiKey = "9fba0552270644ffade53d9ab23b2ddc";
+  let apiURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+  axios.get(apiURL).then(showCurrentCity);
+;
+}
+function showCurrentCity(response) {
+  let inp = document.querySelector("#search-text-input");
+  inp.value = response.data.name;
+  updatePage();
 }
 
 let btn = document.querySelector("#current-location");
