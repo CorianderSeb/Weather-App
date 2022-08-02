@@ -22,6 +22,13 @@ function showCurrentDate() {
 let dayAndTime = document.querySelector("#day-and-time");
 dayAndTime.innerHTML = showCurrentDate();
 
+function formatDays(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  return days(day);
+}
+
 function searchTextInput(event) {
   event.preventDefault();
   updatePage();
@@ -40,6 +47,8 @@ form.addEventListener("submit", searchTextInput);
 function getWeatherConditions(city) {
   let weatherDescription = searchByType(city);
   weatherDescription.then(function (response) {
+    getForecast(response.data.coord);
+
     let weatherDescriptionData = document.querySelector("#temp-description");
     weatherDescriptionData.innerHTML = response.data.weather[0].description;
   });
@@ -48,15 +57,15 @@ function getWeatherConditions(city) {
     let currentTempData = document.querySelector("#current-temp");
     currentTempData.innerHTML = Math.round(response.data.main.temp);
   });
-  let weatherSymbol = searchByType (city);
-    weatherSymbol.then(function(response){
+  let weatherSymbol = searchByType(city);
+  weatherSymbol.then(function (response) {
     let weatherSymbolData = document.querySelector("#weather-symbol-data");
-   weatherSymbolData.setAttribute(
-     "src",
-     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-   );
-   weatherSymbolData.setAttribute("alt", response.data.weather[0].description);
-    })
+    weatherSymbolData.setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
+    weatherSymbolData.setAttribute("alt", response.data.weather[0].description);
+  });
   let humidity = searchByType(city);
   humidity.then(function (response) {
     let humidityData = document.querySelector("#humidity-data");
@@ -99,15 +108,12 @@ function displayCity() {
   searchedCity.innerHTML = FormData;
   searchedCity.addEventListener("click", displayCity);
 }
-function getForecast(coordinates){
-  let units = metric
+function getForecast(coordinates) {
+  let units = "metric";
   let apiKey = "9fba0552270644ffade53d9ab23b2ddc";
-  let apiURL = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
-axios.get(apiURL).then(showForecast);
-console.log(response.data)
+  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
+  axios.get(apiURL).then(showForecast);
 }
-
-
 function displayWeatherInfo(response) {
   document.querySelector("#city-name").innerHTML = response.data.name;
   document.querySelector("#temp-description").innerHTML =
@@ -142,28 +148,31 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(ShowPosition);
 }
 //Help on this loop function
-function showForecast() {
-  let forecastElement= document.querySelector("#forecast");
-  let forecastHTML= '<div class="row">';
-  let days = ["Thursday", "Friday", "Saturday", "Sunday", "Monday"];
-  days.forEach(function(day) {
-forecastHTML = 
-  forecastHTML + 
-  `
+function showForecast(response) {
+  let forecast = response.data.daily;
+
+  let forecastElement = document.querySelector("#forecast");
+  
+  let forecastHTML = '<div class="row">';
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+    forecastHTML =
+      forecastHTML +
+      `
     <div class="col" id="weather-forecast">
-      <span id="card">
+      <div id="card">
       <ul>
-        <li class="card-title">${days}</li>
-        <li class="card-subtitle mb-2 text-muted">☀️</li>
-        <li class="card-text">98° F</li>
+        <li class="card-title">${formatDays(forecastDay.dt)}}</li>
+        <img src= "http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png/>
+        <li class="card-text">${Math.round(forecastDay.temp.max)}°F</li>
+        <li class="card-text">${Math.round(forecastDay.temp.min)}°F</li>
         </ul>
-      <span>
+      </div>
     </div>
      `;
-  })
-  
-  forecastHTML= `</div>`
-  forecastElement.innerHTML= forecastHTML;
+  }});
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 function ShowPosition(position) {
