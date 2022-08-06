@@ -26,7 +26,7 @@ function formatDays(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
   let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  return days(day);
+  return days[day];
 }
 
 function searchTextInput(event) {
@@ -85,8 +85,8 @@ function getWeatherConditions(city) {
 function showCelcius(event) {
   event.preventDefault();
   units = "metric";
-  ctemp.classList.remove("active")
-  ftemp.classList.add("active");
+  ftemp.classList.remove("active")
+  ctemp.classList.add("active");
   updatePage();
 }
 
@@ -96,8 +96,8 @@ ctemp.addEventListener("click", showCelcius);
 function showFarenheit(event) {
   event.preventDefault();
   units = "imperial";
-  ftemp.classList.remove("active");
-  ctemp.classList.add("active");
+  ctemp.classList.remove("active");
+  ftemp.classList.add("active");
   updatePage();
 }
 let ftemp = document.querySelector("#f-temp");
@@ -162,8 +162,8 @@ function showForecast(response) {
     <div class="col" id="weather-forecast">
       <div id="card">
       <ul>
-        <li class="card-title">${formatDays(forecastDay.dt)}}</li>
-        <img src= "http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png/>
+        <li class="card-title">${formatDays(forecastDay.dt)}</li>
+        <img src= "http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"/>
         <li class="card-text">${Math.round(forecastDay.temp.max)}°F</li>
         <li class="card-text">${Math.round(forecastDay.temp.min)}°F</li>
         </ul>
