@@ -74,7 +74,7 @@ function getWeatherConditions(city) {
   let windSpeed = searchByType(city);
   windSpeed.then(function (response) {
     let windSpeedData = document.querySelector("#wind-speed");
-    if (units === "metric") {
+    if (units === "meric") {
       windSpeedData.innerHTML = Math.round(response.data.wind.speed) + " km/h";
     } else {
       windSpeedData.innerHTML = Math.round(response.data.wind.speed) + " mph";
@@ -109,7 +109,7 @@ function displayCity() {
   searchedCity.addEventListener("click", displayCity);
 }
 function getForecast(coordinates) {
-  let units = "metric";
+  let units = "imperial";
   let apiKey = "9fba0552270644ffade53d9ab23b2ddc";
   let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
   axios.get(apiURL).then(showForecast);
@@ -161,11 +161,11 @@ function showForecast(response) {
       `
     <div class="col" id="weather-forecast">
       <div id="card">
-      <ul>
-        <li class="card-title">${formatDays(forecastDay.dt)}</li>
+      <ul class="div">
+        <div class="card-title">${formatDays(forecastDay.dt)}</li>
         <img src= "http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"/>
-        <li class="card-text">${Math.round(forecastDay.temp.max)}°F</li>
-        <li class="card-text">${Math.round(forecastDay.temp.min)}°F</li>
+        <div class="card-text">${Math.round(forecastDay.temp.max)}°F</li>
+        <span class="card-texts">${Math.round(forecastDay.temp.min)}°F</li>
         </ul>
       </div>
     </div>
@@ -192,7 +192,7 @@ function showCurrentCity(response) {
 let btn = document.querySelector("#current-location");
 btn.addEventListener("click", getCurrentLocation);
 
-let units = "metric";
+let units = "imperial";
 
 let inp = document.querySelector("#search-text-input");
 inp.value = "New York";
