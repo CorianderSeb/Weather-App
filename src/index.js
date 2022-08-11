@@ -82,17 +82,6 @@ function getWeatherConditions(city) {
   });
 }
 
-function showCelcius(event) {
-  event.preventDefault();
-  units = "metric";
-  ftemp.classList.remove("active")
-  ctemp.classList.add("active");
-  updatePage();
-}
-
-let ctemp = document.querySelector("#c-temp");
-ctemp.addEventListener("click", showCelcius);
-
 function showFarenheit(event) {
   event.preventDefault();
   units = "imperial";
