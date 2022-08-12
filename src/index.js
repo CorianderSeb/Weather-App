@@ -136,7 +136,7 @@ function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(ShowPosition);
 }
-//Help on this loop function
+//why is there an error here?
 function showForecast(response) {
   let forecast = response.data.daily;
 

@@ -41,7 +41,7 @@ p {
 }
 footer {
   font-size: 14px;
-  color: cornflowerblue;
+  color: navy;
   padding-top: 15px;
   padding-left: 150px;
 }
@@ -77,25 +77,8 @@ color: crimson;
 .col-md-1 {
   padding-right: 0;
 }
-#c-temp.active {
-  color: rgb(57, 57, 136);
-  text-decoration: none;
-  cursor: default;
-}
-#c-temp.active:hover {
-text-decoration: none;
-}
-#f-temp.active {
-  color: rgb(57, 57, 136);
-  text-decoration: none;
-  cursor: default;
-}
-#f-temp.active:hover {
-text-decoration: none;
-}
 .col {
   padding:0;
-  border-color: navy;
 }
 @media screen and (max-width: 800px) {
   .card {
@@ -116,8 +99,16 @@ list-style-type: none;
 .ul {
   list-style-type: none;
 }
+}
 .card-title {
-  font-size: 20pt;
+  font-size: 15px;
+  padding-top: 20px;
   margin:0;
   list-style-type:none;
+}
+.card-title img{
+  display:block;
+}
+.card-texts {
+  color: aliceblue;
 }
