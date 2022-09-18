@@ -152,7 +152,9 @@ function showForecast(response) {
       <div id="card">
       <ul class="div">
         <div class="card-title">${formatDays(forecastDay.dt)}</li>
-        <img src= "http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"/>
+        <img src= "http://openweathermap.org/img/wn/${
+          forecastDay.weather[0].icon
+        }@2x.png"/>
         <div class="card-text">${Math.round(forecastDay.temp.max)}°F</li>
         <span class="card-texts">${Math.round(forecastDay.temp.min)}°F</li>
         </ul>

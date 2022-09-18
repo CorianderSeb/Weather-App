@@ -1,5 +1,5 @@
 body {
-  background: darkcyan;
+  background: white;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -61,18 +61,18 @@ footer {
   text-align: right;
 }
 .card {
-  border-color: cornflowerblue;
+  border-color: cornflowerblue !important;
   border-width: 6px;
   margin: 5px;
   text-align: center;
   width: 12rem;
 }
 #currentLocation {
-  border-color: crimson;
+  border-color: #EC6E4C;
   text-align: left;
 }
 #weather-symbol-data {
-color: crimson;
+color: #EC6E4C;
 }
 .col-md-1 {
   padding-right: 0;
@@ -93,7 +93,7 @@ list-style: none;
 }
 .card h6{
   font-size:9px;
-  color: darkgray;
+  color: rgb(89, 97, 138);
 list-style-type: none;
 }
 .ul {
