@@ -61,7 +61,8 @@ footer {
   text-align: right;
 }
 .card {
-  border-color: cornflowerblue !important;
+  background-color: cornflowerblue;
+  border-color:rgb(57, 57, 136);
   border-width: 6px;
   margin: 5px;
   text-align: center;
@@ -95,9 +96,11 @@ list-style: none;
   font-size:9px;
   color: rgb(89, 97, 138);
 list-style-type: none;
+
 }
 .ul {
   list-style-type: none;
+  margin:0
 }
 }
 .card-title {
@@ -108,7 +111,11 @@ list-style-type: none;
 }
 .card-title img{
   display:block;
+  margin: 0 auto;
 }
 .card-texts {
   color: rgb(65, 126, 224);
+}
+.div-ul {
+  padding-left: 0;
 }

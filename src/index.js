@@ -11,6 +11,12 @@ function showCurrentDate() {
   ];
   let day = weekday[now.getDay()];
   let hours = now.getHours();
+  if (hours > 12) {
+    hours= hours-12
+  }
+  else if (hours==0) {
+    hours=12
+  }
   let minutes = now.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
@@ -149,8 +155,8 @@ function showForecast(response) {
       forecastHTML +
       `
     <div class="col" id="weather-forecast">
-      <div id="card">
-      <ul class="div">
+      <div class="card">
+      <ul class="div-ul">
         <div class="card-title">${formatDays(forecastDay.dt)}</li>
         <img src= "http://openweathermap.org/img/wn/${
           forecastDay.weather[0].icon
@@ -180,11 +186,14 @@ function showCurrentCity(response) {
   updatePage();
 }
 
-let btn = document.querySelector("#current-location");
-btn.addEventListener("click", getCurrentLocation);
-
 let units = "imperial";
-
 let inp = document.querySelector("#search-text-input");
 inp.value = "New York";
 updatePage();
+
+let btn = document.querySelector("#current-location");
+btn.addEventListener("click", getCurrentLocation);
+btn.click();
+
+
+
